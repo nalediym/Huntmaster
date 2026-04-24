@@ -1,0 +1,90 @@
+name: Bug Report
+description: Report a defect or unexpected behavior in Huntmaster.
+title: "bug: "
+labels:
+  - "type:bug"
+  - "needs:triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug. Please fill in all sections below.
+        **Do not include real secrets, tokens, or real user data in this report.**
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing the bug.
+      placeholder: "When I run X, Y happens instead of Z."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: What actually happens?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: Minimal steps to reproduce.
+      placeholder: |
+        1. Run `huntmaster ...`
+        2. See error
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: "Python version, OS, Huntmaster version or commit SHA."
+      placeholder: "Python 3.11.9 / Ubuntu 22.04 / commit abc1234"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / output
+      description: Paste relevant logs. Redact any tokens or sensitive values.
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: safety_impact
+    attributes:
+      label: Safety impact
+      description: Does this bug affect scope enforcement, the human review gate, or submission logic?
+      options:
+        - "No — purely functional/UX bug"
+        - "Possibly — I am not sure"
+        - "Yes — affects scope enforcement or human review gate"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety_checklist
+    attributes:
+      label: Safety checklist
+      options:
+        - label: This report does not contain real secrets, API tokens, or passwords.
+          required: true
+        - label: This report does not contain real user data or PII.
+          required: true
+        - label: I have redacted all sensitive values from logs and screenshots.
+          required: true

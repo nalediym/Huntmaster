@@ -60,3 +60,17 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 pytest
 ```
+
+## Contributing and agent rules
+
+All contributors and AI coding agents must read [`AGENTS.md`](AGENTS.md) before making changes.
+Key rules:
+
+- **No exploit code.** Pensar Apex handles exploitation; this repo does not.
+- **No scope bypass.** `src/scope_enforcer/` is safety-critical and requires human review.
+- **No auto-submit.** Every HackerOne submission requires explicit human approval.
+- **No secrets.** Never commit tokens, API keys, or real program data.
+- **Tests alongside code.** Cover new behavior before opening a PR.
+
+For AI coding agents (GitHub Copilot, Devin, Claude Code), the full rule set is in
+[`AGENTS.md`](AGENTS.md) and [`.github/copilot-instructions.md`](.github/copilot-instructions.md).

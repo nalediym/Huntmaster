@@ -1,0 +1,78 @@
+name: Scope Rule
+description: Propose a new or updated scope enforcement rule or policy.
+title: "scope: "
+labels:
+  - "area:scope-enforcer"
+  - "type:rule"
+  - "needs:triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Changes to scope enforcement rules are **safety-critical** and require human review
+        before merge. Please provide test cases — they are mandatory.
+
+  - type: textarea
+    id: rule_summary
+    attributes:
+      label: Rule summary
+      description: Describe the scope rule in one or two sentences.
+      placeholder: "Wildcard subdomains (*.example.com) should match any direct subdomain but not nested subdomains."
+    validations:
+      required: true
+
+  - type: textarea
+    id: in_scope_examples
+    attributes:
+      label: In-scope examples
+      description: Provide asset strings that should be ALLOWED by this rule.
+      placeholder: |
+        - api.example.com
+        - www.example.com
+    validations:
+      required: true
+
+  - type: textarea
+    id: out_of_scope_examples
+    attributes:
+      label: Out-of-scope examples
+      description: Provide asset strings that should be BLOCKED by this rule.
+      placeholder: |
+        - evil.internal.example.com
+        - unrelated.org
+    validations:
+      required: true
+
+  - type: textarea
+    id: ambiguous_examples
+    attributes:
+      label: Ambiguous examples
+      description: Asset strings that are unclear — what behavior do you expect?
+      placeholder: |
+        - *.*.example.com  →  expected: block (ambiguous wildcard depth)
+    validations:
+      required: false
+
+  - type: dropdown
+    id: default_behavior
+    attributes:
+      label: Default behavior for ambiguous assets
+      description: What should happen when the scope enforcer cannot determine if an asset is in-scope?
+      options:
+        - "Block and log (safe default — recommended)"
+        - "Allow and log (requires strong justification)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: test_cases
+    attributes:
+      label: Test cases
+      description: |
+        Provide pytest-style test case sketches or input/output pairs that a property-based
+        test should cover.
+      placeholder: |
+        assert enforcer.check("api.example.com") == ALLOW
+        assert enforcer.check("evil.internal.example.com") == BLOCK
+    validations:
+      required: true
