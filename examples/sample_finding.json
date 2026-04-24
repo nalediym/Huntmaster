@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "title": "Example reflected parameter handling issue",
+      "cvss_score": 4.3,
+      "cvss_vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:R/VC:L/VI:L/VA:N/SC:N/SI:N/SA:N",
+      "cwe_id": "CWE-79",
+      "asset": "https://app.example.com/search",
+      "evidence": "Example sanitized evidence only. Do not include real user data.",
+      "poc": "curl 'https://app.example.com/search?q=test'",
+      "validated": true
+    }
+  ]
+}
