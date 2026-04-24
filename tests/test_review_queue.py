@@ -1,3 +1,5 @@
+import pytest
+
 from huntmaster.review_queue import ReviewQueue, ReviewAction
 
 
@@ -31,8 +33,5 @@ def test_review_reject_removes_from_pending():
 
 def test_review_invalid_index_raises():
     q = ReviewQueue()
-    try:
+    with pytest.raises(IndexError):
         q.review(99, ReviewAction.APPROVE)
-        assert False, "Should raise IndexError"
-    except IndexError:
-        pass
