@@ -1,0 +1,73 @@
+# Path-based label configuration for github/labeler action
+# Docs: https://github.com/actions/labeler
+
+"area:ci":
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/workflows/**"
+          - ".github/dependabot.yml"
+          - "pyproject.toml"
+          - ".pre-commit-config.yaml"
+
+"area:docs":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "README.md"
+          - "docs/**"
+          - "**/*.md"
+          - "**/*.rst"
+
+"area:github":
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".github/**"
+
+"area:scope-enforcer":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/scope_enforcer/**"
+          - "tests/test_scope_enforcer*"
+          - "tests/scope_enforcer/**"
+
+"area:hackerone-connector":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/h1_connector/**"
+          - "tests/test_h1_connector*"
+          - "tests/h1_connector/**"
+
+"area:triage":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/triage/**"
+          - "tests/test_triage*"
+          - "tests/triage/**"
+
+"area:report-drafting":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/report_writer/**"
+          - "tests/test_report_writer*"
+          - "tests/report_writer/**"
+
+"area:tests":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "tests/**"
+
+"area:security":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "SECURITY.md"
+          - "AGENTS.md"
+          - ".github/copilot-instructions.md"
+          - "src/scope_enforcer/**"
+
+"risk:safety-sensitive":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "src/scope_enforcer/**"
+          - "src/triage/**"
+          - "db/schema.sql"
+          - "SECURITY.md"
+          - "AGENTS.md"

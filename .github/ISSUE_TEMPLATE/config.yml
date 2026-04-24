@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability in Huntmaster
+    url: https://github.com/nalediym/Huntmaster/security/advisories/new
+    about: |
+      Report a vulnerability in Huntmaster itself privately via GitHub's private
+      security advisory feature. Do not open a public issue for security vulnerabilities.
+  - name: Documentation
+    url: https://github.com/nalediym/Huntmaster/tree/main/docs
+    about: Browse the project documentation.

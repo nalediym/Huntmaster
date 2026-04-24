@@ -1,0 +1,28 @@
+# CODEOWNERS
+# Defines required reviewers for safety-sensitive paths.
+# All patterns use the same syntax as .gitignore.
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything not matched below.
+*                           @nalediym
+
+# Safety-critical: scope enforcement requires human review on every change.
+src/scope_enforcer/         @nalediym
+tests/test_scope_enforcer*  @nalediym
+
+# Safety-critical: triage logic
+src/triage/                 @nalediym
+tests/test_triage*          @nalediym
+
+# Schema changes must be backward-compatible.
+db/schema.sql               @nalediym
+
+# Security and agent policy documents.
+SECURITY.md                 @nalediym
+AGENTS.md                   @nalediym
+CLAUDE.md                   @nalediym
+.github/copilot-instructions.md @nalediym
+
+# CI/CD and GitHub configuration.
+.github/workflows/          @nalediym
+.github/                    @nalediym

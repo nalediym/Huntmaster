@@ -1,0 +1,77 @@
+name: Feature Request
+description: Propose a new feature or enhancement for Huntmaster.
+title: "feat: "
+labels:
+  - "type:feature"
+  - "needs:triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before submitting, please check that the feature is within the
+        [project scope](../README.md). Features that add exploit logic, autonomous
+        scanning, autonomous submission, stealth/evasion logic, or payload libraries
+        will be closed without review.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: One or two sentences describing the feature.
+    validations:
+      required: true
+
+  - type: textarea
+    id: user_story
+    attributes:
+      label: User story
+      description: "As a [role], I want [capability] so that [benefit]."
+      placeholder: "As a researcher, I want to filter findings by severity so that I can prioritize my review queue."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Proposed solution
+      description: How would you implement this?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches did you consider?
+    validations:
+      required: false
+
+  - type: textarea
+    id: safety_considerations
+    attributes:
+      label: Safety considerations
+      description: |
+        Does this feature touch scope enforcement, the human review gate, report submission,
+        or any other safety-sensitive area? Describe the impact.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: human_review_impact
+    attributes:
+      label: Human-review gate impact
+      description: Does this feature change or bypass the human approval step?
+      options:
+        - "No change to human review gate"
+        - "Modifies human review workflow (requires careful review)"
+        - "Could reduce or bypass human review (likely out of scope)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Tests and docs
+      options:
+        - label: I am willing to write or help write tests for this feature.
+        - label: I am willing to write or help write documentation for this feature.

@@ -1,0 +1,71 @@
+name: Safety Concern
+description: Report a potential safety, ethics, or authorization issue in Huntmaster.
+title: "safety: "
+labels:
+  - "type:safety"
+  - "risk:safety-sensitive"
+  - "needs:human-review"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ⚠️ Safety concerns require human review
+        This issue type is routed directly to a human maintainer. Do not include exploit
+        details, working payloads, or live credentials in this report.
+
+        If you have discovered a vulnerability **in Huntmaster itself**, please report it
+        privately per [`SECURITY.md`](../SECURITY.md) instead of opening a public issue.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Brief description of the safety concern.
+    validations:
+      required: true
+
+  - type: textarea
+    id: risky_behavior
+    attributes:
+      label: Risky behavior observed
+      description: |
+        Describe the behavior you believe is unsafe, unethical, or unauthorized.
+        Do not include working exploit code or live credentials.
+    validations:
+      required: true
+
+  - type: input
+    id: affected_area
+    attributes:
+      label: Affected area
+      description: "e.g., scope_enforcer, review_queue, h1_connector, CI workflow"
+    validations:
+      required: true
+
+  - type: textarea
+    id: why_it_matters
+    attributes:
+      label: Why this matters
+      description: What could go wrong if this is not addressed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Suggested mitigation
+      description: If you have ideas for how to fix this safely, describe them here.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: data_involved
+    attributes:
+      label: Secrets or user data involved?
+      description: Does this concern involve real secrets, tokens, or real user/PII data?
+      options:
+        - "No"
+        - "Possibly — I am not sure"
+        - "Yes — please treat this as urgent"
+    validations:
+      required: true
