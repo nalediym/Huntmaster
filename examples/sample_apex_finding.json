@@ -1,0 +1,16 @@
+{
+  "program_id": "example-corp",
+  "title": "Reflected XSS in search endpoint",
+  "asset": "https://app.example.com/search",
+  "asset_type": "URL",
+  "cvss_score": 6.1,
+  "cwe_id": "CWE-79",
+  "validated": true,
+  "poc": "GET /search?q=<script>alert(document.cookie)</script> HTTP/1.1\nHost: app.example.com",
+  "evidence": "Screenshot shows alert box firing with session cookie value in Chrome 124.",
+  "apex_output": {
+    "scanner": "pensar-apex",
+    "confidence": "high",
+    "timestamp": "2026-04-23T12:00:00Z"
+  }
+}
