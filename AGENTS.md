@@ -21,6 +21,16 @@
 - Fix code, never tests.
 - All external APIs must be mocked (`responses` library).
 
+## Cloud agent priority
+
+Sessions are driven in this order:
+
+1. **GitHub Copilot coding agent** (included, available now — assign `@copilot` to any issue)
+2. **Devin** ($20/mo, mobile-first, Slack DM workflow)
+3. **Claude Code** (fallback / deep refactors)
+
+All agents follow the same non-negotiable rules above and the master prompt in the Launch Kit.
+
 ## Self-heal loop
 
 3 attempts → open draft PR titled `blocked: [reason]`, stop.
