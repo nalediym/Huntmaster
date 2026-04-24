@@ -1,0 +1,26 @@
+{
+  "program_id": "example-corp",
+  "handle": "example-corp",
+  "name": "Example Corp Bug Bounty",
+  "policy": "We welcome security research on our public-facing web properties.",
+  "scope": [
+    {
+      "asset_type": "WILDCARD",
+      "asset_value": "*.example.com",
+      "eligible": true,
+      "instruction": "All subdomains of example.com are in scope."
+    },
+    {
+      "asset_type": "URL",
+      "asset_value": "https://admin.example.com",
+      "eligible": false,
+      "instruction": "Admin panel is explicitly out of scope."
+    },
+    {
+      "asset_type": "URL",
+      "asset_value": "https://app.example.com",
+      "eligible": true,
+      "instruction": "Main web application — full scope."
+    }
+  ]
+}
